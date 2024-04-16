@@ -1,0 +1,12 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+
+services:
+  voting-app:
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: voting-app-db
+    ports:
+        - "5432:5432"
