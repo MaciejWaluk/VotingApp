@@ -1,0 +1,19 @@
+{% load static %}
+<!-- election_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Election List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+    <h2>List of Elections</h2>
+    <ul>
+        {% for election in elections %}
+            <li><a href="{% url 'election_detail' election.id %}">{{ election.type }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
