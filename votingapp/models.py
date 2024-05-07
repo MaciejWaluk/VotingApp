@@ -1,16 +1,16 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
+class VotingUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
     nr_pesel = models.CharField(max_length=11)
 
 
 class Election(models.Model):
     id = models.AutoField(primary_key=True)
-    creator = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    creator = models.ForeignKey(VotingUser, on_delete=models.DO_NOTHING)
     type = models.CharField(max_length=100)
     max_votes = models.IntegerField()
     start_date = models.DateField()
@@ -25,7 +25,7 @@ class Constraint(models.Model):
 
 class Voted_User(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(VotingUser, on_delete=models.DO_NOTHING)
     election = models.ForeignKey(Election, on_delete=models.DO_NOTHING)
 
 
