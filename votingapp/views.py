@@ -69,19 +69,33 @@ def logout_view(request):
 
 @login_required
 def election_list(request):
-    today = date.today()
     user = request.user
     try:
         voting_user = user.votinguser
     except VotingUser.DoesNotExist:
         messages.error(request, 'You are not authorized to access this page.')
         return redirect('home')
-    all_elections = Election.objects.all()
     voted_elections = Voted_User.objects.filter(user=voting_user).values_list('election_id', flat=True)
-    remaining_elections = all_elections.exclude(id__in=voted_elections)
+    current_date = timezone.now().date()
+    ongoing_elections = Election.objects.filter(end_date__gte=current_date)
+    ongoing_elections = ongoing_elections.exclude(id__in=voted_elections)
+    ended_elections = Election.objects.filter(end_date__lt=current_date)
+    return render(request, 'election_list.html', {'ongoing_elections': ongoing_elections, 'ended_elections': ended_elections})
 
-    return render(request, 'election_list.html', {'elections': remaining_elections, 'today': today})
 
+def ended_elections_report(request, election_id):
+    election = get_object_or_404(Election, pk=election_id)
+    votes = Vote.objects.filter(election=election)
+    total_votes = votes.count()
+    candidate_votes = {}
+    for vote in votes:
+        candidate_name = vote.candidate.name
+        if candidate_name in candidate_votes:
+            candidate_votes[candidate_name] += 1
+        else:
+            candidate_votes[candidate_name] = 1
+
+    return render(request, 'ended_elections_report.html',{'election': election, 'total_votes': total_votes, 'candidate_votes': candidate_votes})
 
 def election_detail(request, election_id):
     election = get_object_or_404(Election, pk=election_id)
@@ -106,8 +120,8 @@ def election_detail(request, election_id):
         selected_candidates = request.POST.getlist('candidate')
         max_votes = election.max_votes
 
-        if len(selected_candidates) != max_votes:
-            messages.error(request, f'Please select exactly {max_votes} candidates.')
+        if len(selected_candidates) > max_votes:
+            messages.error(request, f'Please select maximally {max_votes} candidates.')
         else:
             # Create Vote objects for selected candidates
             for candidate_id in selected_candidates:

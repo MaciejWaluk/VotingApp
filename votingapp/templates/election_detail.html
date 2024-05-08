@@ -12,8 +12,8 @@
             var maxVotes = {{ election.max_votes }};
             var checkedCount = document.querySelectorAll('input[name="candidate"]:checked').length;
             
-            if (checkedCount !== maxVotes) {
-                alert('Please select exactly ' + maxVotes + ' candidates.');
+            if (checkedCount > maxVotes) {
+                alert('Please select maximally ' + maxVotes + ' candidates.');
                 return false;
             }
             
