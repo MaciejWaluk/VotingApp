@@ -1,4 +1,4 @@
-+{% load static %}
+{% load static %}
 <!-- election_list.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -9,10 +9,15 @@
 
 </head>
 <body>
+    <button><a href="{% url 'logout' %}">Logout</a></button><br>
+    
     <h2>List of Elections</h2>
+        {% if not elections %}
+            <p>No elections available for voting at the moment.</p>
+        {% endif %}
     <ul>
         {% for election in elections %}
-            <li><a href="{% url 'election_detail' election.id %}">{{ election.type }}</a></li>
+            <li><a href="{% url 'election_detail' election.id %}">{{ election.type }}</a></li><br>
         {% endfor %}
     </ul>
 </body>

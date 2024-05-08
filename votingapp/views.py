@@ -1,5 +1,7 @@
+from datetime import date
+
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
@@ -60,12 +62,25 @@ def register_view(request):
     else:
         form = RegistrationForm()
     return render(request, 'register.html', {'form': form})
-
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 @login_required
 def election_list(request):
-    elections = Election.objects.all()
-    return render(request, 'election_list.html', {'elections': elections})
+    today = date.today()
+    user = request.user
+    try:
+        voting_user = user.votinguser
+    except VotingUser.DoesNotExist:
+        messages.error(request, 'You are not authorized to access this page.')
+        return redirect('home')
+    all_elections = Election.objects.all()
+    voted_elections = Voted_User.objects.filter(user=voting_user).values_list('election_id', flat=True)
+    remaining_elections = all_elections.exclude(id__in=voted_elections)
+
+    return render(request, 'election_list.html', {'elections': remaining_elections, 'today': today})
 
 
 def election_detail(request, election_id):
