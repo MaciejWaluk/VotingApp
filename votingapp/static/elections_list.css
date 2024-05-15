@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logout {
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px 60px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.active-elections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ended-elections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure the link behaves like a block element */
+    margin-bottom: 0;
+    padding: 10px; /* Add padding for spacing */
+    background-color: #3C3C3C;
+    color: #fff;
+    border-radius: 4px; /* Add border radius for rounded corners */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+a:hover {
+    background-color: #5E5E5E;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+label {
+    cursor: pointer; /* Change cursor to pointer when hovering over labels */
+}
