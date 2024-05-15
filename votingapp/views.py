@@ -11,7 +11,6 @@ from .models import VotingUser
 from django.contrib.auth.models import User
 from .models import Voted_User
 
-
 from votingapp.models import Election, Election_Candidate, Candidate, Vote
 
 
@@ -62,10 +61,13 @@ def register_view(request):
     else:
         form = RegistrationForm()
     return render(request, 'register.html', {'form': form})
+
+
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
+
 
 @login_required
 def election_list(request):
@@ -75,12 +77,18 @@ def election_list(request):
     except VotingUser.DoesNotExist:
         messages.error(request, 'You are not authorized to access this page.')
         return redirect('home')
+
+    user_groups = voting_user.user.groups.all()
+    print(user_groups)
+
     voted_elections = Voted_User.objects.filter(user=voting_user).values_list('election_id', flat=True)
     current_date = timezone.now().date()
-    ongoing_elections = Election.objects.filter(end_date__gte=current_date)
+    ongoing_elections = Election.objects.filter(end_date__gte=current_date, allowed_groups__in=user_groups)
     ongoing_elections = ongoing_elections.exclude(id__in=voted_elections)
-    ended_elections = Election.objects.filter(end_date__lt=current_date)
-    return render(request, 'election_list.html', {'ongoing_elections': ongoing_elections, 'ended_elections': ended_elections})
+    ended_elections = Election.objects.filter(end_date__lt=current_date, allowed_groups__in=user_groups)
+
+    return render(request, 'election_list.html',
+                  {'ongoing_elections': ongoing_elections, 'ended_elections': ended_elections})
 
 
 def ended_elections_report(request, election_id):
@@ -95,26 +103,25 @@ def ended_elections_report(request, election_id):
         else:
             candidate_votes[candidate_name] = 1
 
-    return render(request, 'ended_elections_report.html',{'election': election, 'total_votes': total_votes, 'candidate_votes': candidate_votes})
+    return render(request, 'ended_elections_report.html',
+                  {'election': election, 'total_votes': total_votes, 'candidate_votes': candidate_votes})
+
 
 def election_detail(request, election_id):
     election = get_object_or_404(Election, pk=election_id)
     candidates = Candidate.objects.filter(election_candidate__election=election)
-    user = request.user  # Get the current user
+    user = request.user
 
-    # Get the VotingUser object associated with the logged-in user
     try:
         voting_user = user.votinguser
     except VotingUser.DoesNotExist:
-        # Handle the case where the VotingUser object does not exist
-        # This might happen if the user is not properly associated with a VotingUser
-        messages.error(request, 'You are not authorized to access this page.')
-        return redirect('home')  # Redirect to the home page or another appropriate view
 
-    # Check if the user has already voted in the election
+        messages.error(request, 'You are not authorized to access this page.')
+        return redirect('home')
+
     if Voted_User.objects.filter(user=voting_user, election=election).exists():
         messages.error(request, 'You have already voted in this election.')
-        return redirect('election_list')  # Redirect to the elections list view
+        return redirect('election_list')
 
     if request.method == 'POST':
         selected_candidates = request.POST.getlist('candidate')
@@ -123,15 +130,13 @@ def election_detail(request, election_id):
         if len(selected_candidates) > max_votes:
             messages.error(request, f'Please select maximally {max_votes} candidates.')
         else:
-            # Create Vote objects for selected candidates
             for candidate_id in selected_candidates:
                 candidate = get_object_or_404(Candidate, pk=candidate_id)
                 Vote.objects.create(candidate=candidate, election=election, date=timezone.now())  # Set the date
-            # Register the user as voted in the election
+
             Voted_User.objects.create(user=voting_user, election=election)
 
             messages.success(request, 'Your vote has been submitted successfully.')
-            return redirect('election_list')  # Redirect to the elections list view
+            return redirect('election_list')
 
     return render(request, 'election_detail.html', {'election': election, 'candidates': candidates})
-

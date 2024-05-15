@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.db import models
 
 
@@ -15,6 +15,7 @@ class Election(models.Model):
     max_votes = models.IntegerField()
     start_date = models.DateField()
     end_date = models.DateField()
+    allowed_groups = models.ManyToManyField(Group, blank=True)
 
 
 class Constraint(models.Model):

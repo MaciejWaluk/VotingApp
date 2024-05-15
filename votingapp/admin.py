@@ -9,3 +9,5 @@ admin.site.register(Voted_User)
 admin.site.register(Candidate)
 admin.site.register(Election_Candidate)
 admin.site.register(Vote)
+
+
