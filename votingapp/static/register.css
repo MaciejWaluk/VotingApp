@@ -54,3 +54,9 @@ button[type="submit"]:hover {
 .login-paragraph {
     font-size: 0.85em;
 }
+
+.error {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
