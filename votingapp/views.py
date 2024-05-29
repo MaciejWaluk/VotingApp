@@ -114,10 +114,8 @@ def generate_pdf(template_path, context):
     template = get_template(template_path)
     html = template.render(context)
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'filename="election_report.pdf"'
-    pisa_status = pisa.CreatePDF(
-        html, dest=response
-    )
+    response['Content-Disposition'] = 'attachment; filename="election_report.pdf"'
+    pisa_status = pisa.CreatePDF(html, dest=response)
     if pisa_status.err:
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
     return response
@@ -138,11 +136,12 @@ def ended_elections_report(request, election_id):
     context = {
         'election': election,
         'total_votes': total_votes,
-        'candidate_votes': candidate_votes
+        'candidate_votes': candidate_votes,
+        'date': timezone.now().strftime('%Y-%m-%d')
     }
 
     if 'pdf' in request.GET:
-        return generate_pdf('ended_elections_report.html', context)
+        return generate_pdf('election_report_template.html', context)
 
     logger.info(f"Ended elections report accessed for election ID: {election_id}")
     return render(request, 'ended_elections_report.html', context)

@@ -43,17 +43,17 @@ button[type="submit"]:hover {
 }
 
 a {
-    color: #ffffff; /* Set text color */
-    text-decoration: none; /* Remove underline */
-    display: inline-block; /* Ensure the link behaves like a block element */
-    padding: 10px; /* Add padding for spacing */
-    background-color: #007bff; /* Set background color */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    transition: background-color 0.3s; /* Smooth transition on hover */
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 a:hover {
-    background-color: #0056b3; /* Darken the background color on hover */
+    background-color: #0056b3;
 }
 
 li {
