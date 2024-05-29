@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background: url("https://www.socialistsanddemocrats.eu/sites/default/files/styles/header_background/public/2023-04/shutterstock_2029276058_crop.jpg?itok=EyMk4kKK");
     margin: 0;
     padding: 0;
     display: flex;
@@ -21,9 +21,12 @@ body {
     justify-content: center;
     align-items: flex-start;
     margin: 0 auto;
-    background-color: #fff;
+    background:transparent;
+    backdrop-filter: blur(40px);
+    color: #303a2b;
+    font-weight: 500;
     padding: 30px 60px;
-    border-radius: 5px;
+    border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -41,19 +44,30 @@ body {
     align-items: center;
 }
 
+.container a{
+    text-decoration: none;
+    font-weight: 600;
+    background: transparent;
+    border: 2px solid #551ffd;
+    color: #551ffd;
+    border-radius: 25px;
+}
+
 a {
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Ensure the link behaves like a block element */
     margin-bottom: 0;
-    padding: 10px; /* Add padding for spacing */
+    padding: 15px; /* Add padding for spacing */
     background-color: #3C3C3C;
     color: #fff;
-    border-radius: 4px; /* Add border radius for rounded corners */
+    border-radius: 25px; /* Add border radius for rounded corners */
     transition: background-color 0.3s; /* Smooth transition on hover */
+    font-weight: 600;
+    font-size: 16px;
 }
 
 a:hover {
-    background-color: #5E5E5E;
+    background-color: #486aff;
 }
 
 li {
