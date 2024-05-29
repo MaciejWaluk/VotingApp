@@ -36,6 +36,9 @@ class Candidate(models.Model):
     surname = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
 
+    def get_name(self):
+        return self.name
+
 
 class Election_Candidate(models.Model):
     id = models.AutoField(primary_key=True)

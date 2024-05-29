@@ -10,33 +10,33 @@
 <body>
     <div class="container">
         <h2>Registration</h2>
-        <form method="post">
+        <form id="registrationForm" method="post">
             {% csrf_token %}
-            {{ form.non_field_errors }}
             <div class="fieldWrapper">
-                {{ form.email.errors }}
                 <label for="{{ form.email.id_for_label }}">Email:</label>
                 {{ form.email }}
+                <div id="emailErrors" class="error"></div><br>
             </div>
             <div class="fieldWrapper">
-                {{ form.nr_pesel.errors }}
                 <label for="{{ form.nr_pesel.id_for_label }}">Pesel Number:</label>
                 {{ form.nr_pesel }}
+                <div id="peselErrors" class="error"></div><br>
             </div>
             <div class="fieldWrapper">
-                {{ form.password1.errors }}
                 <label for="{{ form.password1.id_for_label }}">Password:</label>
                 {{ form.password1 }}
+                <div id="password1Errors" class="error"></div><br>
             </div>
             <div class="fieldWrapper">
-                {{ form.password2.errors }}
                 <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
                 {{ form.password2 }}
+                <div id="password2Errors" class="error"></div>
             </div>
             <button type="submit">Register</button>
         </form>
         <p class="login-paragraph">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
-        
     </div>
+
+    <script src="{% static 'js/register.js' %}"></script>
 </body>
 </html>

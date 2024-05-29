@@ -1,3 +1,4 @@
+import logging
 from datetime import date
 
 from django.contrib import messages
@@ -16,6 +17,10 @@ from .models import Voted_User
 from django.http import HttpResponse
 
 from votingapp.models import Election, Election_Candidate, Candidate, Vote
+
+# Set up logging
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 
 class RegistrationForm(forms.ModelForm):
@@ -41,6 +46,7 @@ class RegistrationForm(forms.ModelForm):
         voting_user.user = user  # Associate the VotingUser with the User instance
         if commit:
             voting_user.save()
+        logger.info(f"New user registered: {username}")
         return voting_user
 
 
@@ -50,7 +56,10 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
+            logger.info(f"User logged in: {user.username}")
             return redirect('election_list')
+        else:
+            logger.warning("Login failed with provided credentials.")
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
@@ -61,7 +70,10 @@ def register_view(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            logger.info("User registration successful.")
             return redirect('login')  # Redirect to home page after registration
+        else:
+            logger.warning("User registration failed.")
     else:
         form = RegistrationForm()
     return render(request, 'register.html', {'form': form})
@@ -69,7 +81,9 @@ def register_view(request):
 
 @login_required
 def logout_view(request):
+    user = request.user
     logout(request)
+    logger.info(f"User logged out: {user.username}")
     return redirect('login')
 
 
@@ -80,16 +94,17 @@ def election_list(request):
         voting_user = user.votinguser
     except VotingUser.DoesNotExist:
         messages.error(request, 'You are not authorized to access this page.')
+        logger.warning(f"Unauthorized access attempt by user: {user.username}")
         return redirect('home')
 
     user_groups = voting_user.user.groups.all()
-    print(user_groups)
-
     voted_elections = Voted_User.objects.filter(user=voting_user).values_list('election_id', flat=True)
     current_date = timezone.now().date()
     ongoing_elections = Election.objects.filter(end_date__gte=current_date, allowed_groups__in=user_groups)
     ongoing_elections = ongoing_elections.exclude(id__in=voted_elections)
     ended_elections = Election.objects.filter(end_date__lt=current_date, allowed_groups__in=user_groups)
+
+    logger.info(f"Election list accessed by user: {user.username}")
 
     return render(request, 'election_list.html',
                   {'ongoing_elections': ongoing_elections, 'ended_elections': ended_elections})
@@ -129,7 +144,9 @@ def ended_elections_report(request, election_id):
     if 'pdf' in request.GET:
         return generate_pdf('ended_elections_report.html', context)
 
+    logger.info(f"Ended elections report accessed for election ID: {election_id}")
     return render(request, 'ended_elections_report.html', context)
+
 
 
 def election_detail(request, election_id):
@@ -140,12 +157,13 @@ def election_detail(request, election_id):
     try:
         voting_user = user.votinguser
     except VotingUser.DoesNotExist:
-
         messages.error(request, 'You are not authorized to access this page.')
+        logger.warning(f"Unauthorized access attempt by user: {user.username}")
         return redirect('home')
 
     if Voted_User.objects.filter(user=voting_user, election=election).exists():
         messages.error(request, 'You have already voted in this election.')
+        logger.info(f"User {user.username} attempted to vote again in election ID: {election_id}")
         return redirect('election_list')
 
     if request.method == 'POST':
@@ -154,13 +172,13 @@ def election_detail(request, election_id):
 
         if len(selected_candidates) > max_votes:
             messages.error(request, f'Please select maximally {max_votes} candidates.')
+            logger.warning(f"User {user.username} selected too many candidates in election ID: {election_id}")
         else:
             for candidate_id in selected_candidates:
                 candidate = get_object_or_404(Candidate, pk=candidate_id)
                 Vote.objects.create(candidate=candidate, election=election, date=timezone.now())  # Set the date
 
             Voted_User.objects.create(user=voting_user, election=election)
-
             messages.success(request, 'Your vote has been submitted successfully.')
             return redirect('election_list')
 
