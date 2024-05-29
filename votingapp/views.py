@@ -5,11 +5,15 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import get_template
 from django.utils import timezone
 from django import forms
+from xhtml2pdf import pisa
+
 from .models import VotingUser
 from django.contrib.auth.models import User
 from .models import Voted_User
+from django.http import HttpResponse
 
 from votingapp.models import Election, Election_Candidate, Candidate, Vote
 
@@ -91,6 +95,19 @@ def election_list(request):
                   {'ongoing_elections': ongoing_elections, 'ended_elections': ended_elections})
 
 
+def generate_pdf(template_path, context):
+    template = get_template(template_path)
+    html = template.render(context)
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="election_report.pdf"'
+    pisa_status = pisa.CreatePDF(
+        html, dest=response
+    )
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
 def ended_elections_report(request, election_id):
     election = get_object_or_404(Election, pk=election_id)
     votes = Vote.objects.filter(election=election)
@@ -103,8 +120,16 @@ def ended_elections_report(request, election_id):
         else:
             candidate_votes[candidate_name] = 1
 
-    return render(request, 'ended_elections_report.html',
-                  {'election': election, 'total_votes': total_votes, 'candidate_votes': candidate_votes})
+    context = {
+        'election': election,
+        'total_votes': total_votes,
+        'candidate_votes': candidate_votes
+    }
+
+    if 'pdf' in request.GET:
+        return generate_pdf('ended_elections_report.html', context)
+
+    return render(request, 'ended_elections_report.html', context)
 
 
 def election_detail(request, election_id):
