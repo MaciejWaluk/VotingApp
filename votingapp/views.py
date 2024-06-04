@@ -1,3 +1,13 @@
+"""
+This file defines the view functions for the voting application.
+
+The views handle user authentication (login, logout, registration),
+election list display (ongoing and ended elections based on user groups),
+voting process (candidate selection and vote casting), and ended election report generation (HTML and PDF).
+
+Logging is set up to track user actions and potential issues.
+"""
+
 import logging
 from datetime import date
 
@@ -24,6 +34,9 @@ logging.basicConfig(level=logging.INFO)
 
 
 class RegistrationForm(forms.ModelForm):
+    """
+    Custom form for user registration, adding password confirmation and logic to associate the VotingUser with the created User instance.
+    """
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
@@ -32,7 +45,6 @@ class RegistrationForm(forms.ModelForm):
         fields = ['email', 'nr_pesel']  # Add additional fields here
 
     def clean_password2(self):
-        # Check if the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
@@ -51,6 +63,9 @@ class RegistrationForm(forms.ModelForm):
 
 
 def login_view(request):
+    """
+    Handles login functionality: processes login form submission, authenticates users, and redirects to the election list on success.
+    """
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
@@ -66,12 +81,15 @@ def login_view(request):
 
 
 def register_view(request):
+    """
+    Handles user registration: processes registration form submission, saves user data, and redirects to login on success.
+    """
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             logger.info("User registration successful.")
-            return redirect('login')  # Redirect to home page after registration
+            return redirect('login')
         else:
             logger.warning("User registration failed.")
     else:
@@ -81,6 +99,9 @@ def register_view(request):
 
 @login_required
 def logout_view(request):
+    """
+    Logs out the current user and redirects to the login page.
+    """
     user = request.user
     logout(request)
     logger.info(f"User logged out: {user.username}")
@@ -89,13 +110,16 @@ def logout_view(request):
 
 @login_required
 def election_list(request):
+    """
+    Displays a list of ongoing and ended elections for the logged-in user, considering their authorized groups and voting history.
+    """
     user = request.user
     try:
         voting_user = user.votinguser
     except VotingUser.DoesNotExist:
         messages.error(request, 'You are not authorized to access this page.')
         logger.warning(f"Unauthorized access attempt by user: {user.username}")
-        return redirect('home')
+        return redirect('login')
 
     user_groups = voting_user.user.groups.all()
     voted_elections = Voted_User.objects.filter(user=voting_user).values_list('election_id', flat=True)
@@ -111,6 +135,7 @@ def election_list(request):
 
 
 def generate_pdf(template_path, context):
+
     template = get_template(template_path)
     html = template.render(context)
     response = HttpResponse(content_type='application/pdf')
@@ -158,7 +183,7 @@ def election_detail(request, election_id):
     except VotingUser.DoesNotExist:
         messages.error(request, 'You are not authorized to access this page.')
         logger.warning(f"Unauthorized access attempt by user: {user.username}")
-        return redirect('home')
+        return redirect('login')
 
     if Voted_User.objects.filter(user=voting_user, election=election).exists():
         messages.error(request, 'You have already voted in this election.')
