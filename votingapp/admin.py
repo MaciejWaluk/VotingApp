@@ -33,6 +33,7 @@ class ElectionCandidatesAdmin(admin.ModelAdmin):
     def candidate_surname(self, obj):
         return obj.candidate.surname
 
+
 class VotedUserAdmin(admin.ModelAdmin):
     list_display = ["user_name", "election_name"]
 
@@ -41,6 +42,7 @@ class VotedUserAdmin(admin.ModelAdmin):
 
     def user_name(self, obj):
         return obj.user.email
+
 
 class ElectionsAdmin(admin.ModelAdmin):
     search_fields = ["type"]
@@ -80,6 +82,7 @@ class VoteAdmin(admin.ModelAdmin):
 
     def candidate_surname(self, obj):
         return obj.candidate.surname
+
 
 admin.site.register(VotingUser, VotingUserAdmin)
 admin.site.register(Election, ElectionsAdmin)
