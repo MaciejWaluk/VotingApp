@@ -9,28 +9,24 @@ Logging is set up to track user actions and potential issues.
 """
 
 import logging
-from datetime import date
 
+from django import forms
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import get_template
 from django.utils import timezone
-from django import forms
 from xhtml2pdf import pisa
 
-from .models import VotingUser
-from django.contrib.auth.models import User
-from .models import Voted_User
-from django.http import HttpResponse
-
-from votingapp.models import Election, Election_Candidate, Candidate, Vote
+from votingapp.models import Election, Candidate, Vote
+from .models import Voted_User, VotingUser
 
 # Set up logging
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
 
 
 class RegistrationForm(forms.ModelForm):
@@ -48,6 +44,7 @@ class RegistrationForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
+            logger.debug("Password mismatch in registration form.")
             raise forms.ValidationError("Passwords don't match")
         return password2
 
@@ -75,8 +72,10 @@ def login_view(request):
             return redirect('election_list')
         else:
             logger.warning("Login failed with provided credentials.")
+            logger.debug(f"Login attempt failed with data: {request.POST}")
     else:
         form = AuthenticationForm()
+        logger.debug("Rendering login form.")
     return render(request, 'login.html', {'form': form})
 
 
@@ -92,8 +91,10 @@ def register_view(request):
             return redirect('login')
         else:
             logger.warning("User registration failed.")
+            logger.debug(f"Registration form data: {request.POST}")
     else:
         form = RegistrationForm()
+        logger.debug("Rendering registration form.")
     return render(request, 'register.html', {'form': form})
 
 
@@ -142,7 +143,9 @@ def generate_pdf(template_path, context):
     response['Content-Disposition'] = 'attachment; filename="election_report.pdf"'
     pisa_status = pisa.CreatePDF(html, dest=response)
     if pisa_status.err:
+        logger.error("Error generating PDF.")
         return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    logger.debug("PDF generated successfully.")
     return response
 
 
@@ -166,11 +169,11 @@ def ended_elections_report(request, election_id):
     }
 
     if 'pdf' in request.GET:
+        logger.debug(f"Generating PDF report for election ID: {election_id}")
         return generate_pdf('election_report_template.html', context)
 
     logger.info(f"Ended elections report accessed for election ID: {election_id}")
     return render(request, 'ended_elections_report.html', context)
-
 
 
 def election_detail(request, election_id):
@@ -204,6 +207,8 @@ def election_detail(request, election_id):
 
             Voted_User.objects.create(user=voting_user, election=election)
             messages.success(request, 'Your vote has been submitted successfully.')
+            logger.info(f"User {user.username} successfully voted in election ID: {election_id}")
             return redirect('election_list')
 
+    logger.debug(f"Rendering election detail page for election ID: {election_id}")
     return render(request, 'election_detail.html', {'election': election, 'candidates': candidates})

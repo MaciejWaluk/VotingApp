@@ -27,6 +27,41 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Logger
+# See https://docs.djangoproject.com/en/5.0/howto/logging/
+
+LOGGING = {
+    "version": 1,  # the dictConfig format version
+    "disable_existing_loggers": False,  # retain the default loggers
+
+    "formatters": {
+        "verbose": {
+            "format": "{name} {levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+
+    "handlers": {
+        "votingApp": {
+            "class": "logging.FileHandler",
+            "filename": "votingApp.log",
+            "level": "INFO",
+            "formatter": "verbose",
+        },
+    },
+
+    "loggers": {
+        "votingapp.views": {
+            "level": "INFO",
+            "handlers": ["votingApp"],
+            "propagate": False,
+        },
+    },
+}
 
 # Application definition
 
