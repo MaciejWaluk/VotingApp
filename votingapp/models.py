@@ -1,15 +1,5 @@
 """
 This file defines the models for the voting application.
-
-The models represent:
-
-* VotingUser: Extends the default User model with additional fields like email and nr_pesel (national identification number).
-* Election: Represents an election with details like creator, type, maximum votes allowed, start and end date, and allowed groups.
-* Constraint: Represents a constraint associated with an election, possibly a question that needs to be answered by voters.
-* Voted_User: Represents a relationship between a VotingUser and an Election, indicating that the user has voted in that election.
-* Candidate: Represents a candidate in an election with name, surname, and description.
-* Election_Candidate: Represents a relationship between an Election and a Candidate, indicating that the candidate participates in the election.
-* Vote: Represents a vote cast by a user for a candidate in a specific election.
 """
 
 from django.contrib.auth.models import User, Group
