@@ -62,7 +62,23 @@ class RegistrationForm(forms.ModelForm):
 def login_view(request):
     """
     Handles login functionality: processes login form submission, authenticates users, and redirects to the election list on success.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+
+    Returns:
+    HttpResponse:
+        - Renders the login page with an authentication form if the request method is GET.
+        - Redirects to the election list page on successful login.
+        - Re-renders the login page with error messages if authentication fails.
+
+    Template:
+    login.html: Displays the login form.
+
+    Context:
+    form (AuthenticationForm): The authentication form instance.
     """
+
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
@@ -82,6 +98,21 @@ def login_view(request):
 def register_view(request):
     """
     Handles user registration: processes registration form submission, saves user data, and redirects to login on success.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+
+    Returns:
+    HttpResponse:
+        - Renders the registration page with a registration form if the request method is GET.
+        - Redirects to the login page on successful registration.
+        - Re-renders the registration page with error messages if form validation fails.
+
+    Template:
+    register.html: Displays the registration form.
+
+    Context:
+    form (RegistrationForm): The custom registration form instance.
     """
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -102,7 +133,14 @@ def register_view(request):
 def logout_view(request):
     """
     Logs out the current user and redirects to the login page.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+
+    Returns:
+    HttpResponse: Redirects to the login page.
     """
+
     user = request.user
     logout(request)
     logger.info(f"User logged out: {user.username}")
@@ -113,6 +151,19 @@ def logout_view(request):
 def election_list(request):
     """
     Displays a list of ongoing and ended elections for the logged-in user, considering their authorized groups and voting history.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+
+    Returns:
+    HttpResponse: Renders the election list page with ongoing and ended elections.
+
+    Template:
+    election_list.html: Displays the list of ongoing and ended elections.
+
+    Context:
+    ongoing_elections (QuerySet): The list of ongoing elections the user is authorized to vote in.
+    ended_elections (QuerySet): The list of ended elections the user was authorized to vote in.
     """
     user = request.user
     try:
@@ -136,7 +187,18 @@ def election_list(request):
 
 
 def generate_pdf(template_path, context):
+    """
+    Generates a PDF file with a report about a given election.
 
+    Parameters:
+    template_path (str): The path to the HTML template.
+    context (dict): The context to be put in the document.
+
+    Returns:
+    HttpResponse:
+        - The PDF file as a downloadable response.
+        - An error message if PDF generation fails.
+    """
     template = get_template(template_path)
     html = template.render(context)
     response = HttpResponse(content_type='application/pdf')
@@ -150,6 +212,28 @@ def generate_pdf(template_path, context):
 
 
 def ended_elections_report(request, election_id):
+    """
+    Generates a report of an ended election with info such as the number of total votes and the number of votes for each candidate in the election.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+    election_id (int): The primary key of the election for which the report is generated.
+
+    Returns:
+    HttpResponse:
+        - Renders the ended elections report page if 'pdf' is not in GET parameters.
+        - Returns the PDF report if 'pdf' is in GET parameters.
+
+    Template:
+    ended_elections_report.html: Displays the ended elections report.
+
+    Context:
+    election (Election): The election instance being reported.
+    total_votes (int): The total number of votes in the election.
+    candidate_votes (dict): A dictionary mapping candidate names to their vote counts.
+    date (str): The current date formatted as 'YYYY-MM-DD'.
+    """
+
     election = get_object_or_404(Election, pk=election_id)
     votes = Vote.objects.filter(election=election)
     total_votes = votes.count()
@@ -177,6 +261,41 @@ def ended_elections_report(request, election_id):
 
 
 def election_detail(request, election_id):
+    """
+    Handles the display and submission of election details and voting process.
+
+    This view function manages the following tasks:
+    1. Retrieves the election and associated candidates based on the provided election ID.
+    2. Checks if the user is authorized to vote and if they have already voted in the election.
+    3. Processes the voting form submission by validating the selected candidates and recording the votes.
+
+    Parameters:
+    request (HttpRequest): The HTTP request object containing metadata about the request.
+    election_id (int): The primary key of the election to be displayed.
+
+    Returns:
+    HttpResponse:
+        - Renders the election detail page if the request method is GET.
+        - Redirects to the election list page with a success message after successful voting.
+        - Redirects to the login page if the user is not authorized.
+        - Redirects to the election list page if the user has already voted.
+
+    Raises:
+    Http404: If the election or candidate does not exist.
+
+    Template:
+    election_detail.html: Displays the details of the election and the list of candidates.
+
+    Context:
+    election (Election): The election instance being displayed.
+    candidates (QuerySet): The list of candidates associated with the election.
+
+    Examples:
+    - A user accesses the election detail page: GET request to '/election/<election_id>/'
+    - A user submits their vote: POST request to '/election/<election_id>/'
+
+    """
+
     election = get_object_or_404(Election, pk=election_id)
     candidates = Candidate.objects.filter(election_candidate__election=election)
     user = request.user
