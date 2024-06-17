@@ -31,7 +31,9 @@ DOCS_ACCESS = 'public'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['voting-app-mwppat.azurewebsites.net']
+
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+
 
 # Logger
 # See https://docs.djangoproject.com/en/5.0/howto/logging/

@@ -1,0 +1,5 @@
+votingapp.views INFO 2024-06-17 19:54:38,625 views 10372 3904 New user registered: user1@gmail.com
+votingapp.views INFO 2024-06-17 19:54:38,625 views 10372 3904 User registration successful.
+votingapp.views INFO 2024-06-17 19:54:47,003 views 10372 3904 User logged in: user1@gmail.com
+votingapp.views INFO 2024-06-17 19:54:47,077 views 10372 3904 Election list accessed by user: user1@gmail.com
+votingapp.views INFO 2024-06-17 19:54:48,443 views 10372 3904 User logged out: user1@gmail.com
