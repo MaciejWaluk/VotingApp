@@ -1,0 +1,46 @@
+{% load static %}
+
+<!-- election_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Election List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'elections_list.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="active-elections">
+            <h2>Available Elections</h2>
+
+            {% if not ongoing_elections %}
+                <p>No elections available for voting at the moment.</p>
+            {% endif %}
+
+            <ul>
+                {% for election in ongoing_elections %}
+                    <li><a href="{% url 'election_detail' election.id %}">{{ election.type }}</a></li><br>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="ended-elections">
+            <h2>Ended Elections</h2>
+
+            {% if not ended_elections %}
+                <p>No elections ended at the moment.</p>
+            {% endif %}
+
+            <ul>
+                {% for election in ended_elections %}
+                    <li><a href="{% url 'ended_elections_report' election.id %}">{{ election.type }}</a></li><br>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <a class="logout" href="{% url 'logout' %}">Logout</a><br>
+
+
+</body>
+</html>

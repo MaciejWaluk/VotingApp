@@ -1,0 +1,63 @@
+<!-- templates/election_report_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ election.type }} Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 1.4em;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .votes-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .votes-table th, .votes-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .votes-table th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ election.type }} -  Report</h1>
+    </div>
+    <div class="content">
+        <p><strong>Start Date:</strong> {{ election.start_date }}</p>
+        <p><strong>End Date:</strong> {{ election.end_date }}</p>
+        <p><strong>Total Votes:</strong> {{ total_votes }}</p>
+        <h2>Candidate Votes</h2>
+        <table class="votes-table">
+            <tr>
+                <th>Candidate</th>
+                <th>Votes</th>
+            </tr>
+            {% for candidate, votes in candidate_votes.items %}
+            <tr>
+                <td>{{ candidate }}</td>
+                <td>{{ votes }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="footer">
+        <p>Generated on: {{ date }}</p>
+    </div>
+</body>
+</html>

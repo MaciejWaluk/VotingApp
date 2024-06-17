@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pl" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>votingapp.admin &mdash; VotingApp  - dokumentacja</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=9893e7ba"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=a186e9ce"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="../../genindex.html" />
+    <link rel="search" title="Szukaj" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            VotingApp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Szukaj" aria-label="Szukaj" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VotingApp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Kod modułu</a></li>
+      <li class="breadcrumb-item active">votingapp.admin</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Kod źródłowy modułu votingapp.admin</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This file registers the models defined in the `votingapp` app with the Django admin interface.</span>
+
+<span class="sd">It creates custom admin classes for each model, specifying:</span>
+<span class="sd">    - Search fields for easy filtering</span>
+<span class="sd">    - Fieldsets for grouping related fields in the admin interface</span>
+<span class="sd">    - List displays to define the columns shown in the admin list view</span>
+<span class="sd">    - Custom methods to display related model data in a clear way (e.g., election_name, candidate_name)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="p">(</span><span class="n">VotingUser</span><span class="p">,</span> <span class="n">Election</span><span class="p">,</span> <span class="n">Constraint</span><span class="p">,</span> <span class="n">Voted_User</span><span class="p">,</span> <span class="n">Candidate</span><span class="p">,</span> <span class="n">Election_Candidate</span><span class="p">,</span> <span class="n">Vote</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="CandidateAdmin">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.CandidateAdmin">[dokumentacja]</a>
+<span class="k">class</span> <span class="nc">CandidateAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Admin class for the Candidate model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;surname&quot;</span><span class="p">]</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;Personal Information&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;surname&#39;</span><span class="p">)</span>
+        <span class="p">}),</span>
+        <span class="p">(</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,)</span>
+        <span class="p">}),</span>
+    <span class="p">)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;surname&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="VotingUserAdmin">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VotingUserAdmin">[dokumentacja]</a>
+<span class="k">class</span> <span class="nc">VotingUserAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Admin class for the VotingUser model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;nr_pesel&quot;</span><span class="p">]</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;nr_pesel&quot;</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="ElectionCandidatesAdmin">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.ElectionCandidatesAdmin">[dokumentacja]</a>
+<span class="k">class</span> <span class="nc">ElectionCandidatesAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Admin class for the Election_Candidate model (relationship between Elections and Candidates).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;election_name&quot;</span><span class="p">,</span> <span class="s2">&quot;candidate_name&quot;</span><span class="p">,</span> <span class="s2">&quot;candidate_surname&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="ElectionCandidatesAdmin.election_name">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.ElectionCandidatesAdmin.election_name">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">election_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the election type for Election_Candidate objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">election</span><span class="o">.</span><span class="n">type</span></div>
+
+
+<div class="viewcode-block" id="ElectionCandidatesAdmin.candidate_name">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.ElectionCandidatesAdmin.candidate_name">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">candidate_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the candidate&#39;s name for Election_Candidate objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">candidate</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="ElectionCandidatesAdmin.candidate_surname">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.ElectionCandidatesAdmin.candidate_surname">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">candidate_surname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the candidate&#39;s surname for Election_Candidate objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">candidate</span><span class="o">.</span><span class="n">surname</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="VotedUserAdmin">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VotedUserAdmin">[dokumentacja]</a>
+<span class="k">class</span> <span class="nc">VotedUserAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Admin class for the Voted_User model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;user_name&quot;</span><span class="p">,</span> <span class="s2">&quot;election_name&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="VotedUserAdmin.election_name">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VotedUserAdmin.election_name">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">election_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the election type for Voted_User objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">election</span><span class="o">.</span><span class="n">type</span></div>
+
+
+<div class="viewcode-block" id="VotedUserAdmin.user_name">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VotedUserAdmin.user_name">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">user_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the user&#39;s email for Voted_User objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">email</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ElectionsAdmin">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.ElectionsAdmin">[dokumentacja]</a>
+<span class="k">class</span> <span class="nc">ElectionsAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Admin class for the Election model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">search_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;creator&#39;</span><span class="p">,)</span>
+        <span class="p">}),</span>
+        <span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;start_date&#39;</span><span class="p">,</span> <span class="s1">&#39;end_date&#39;</span><span class="p">)</span>
+        <span class="p">}),</span>
+        <span class="p">(</span><span class="s1">&#39;Details&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;max_votes&#39;</span><span class="p">)</span>
+        <span class="p">}),</span>
+        <span class="p">(</span><span class="s1">&#39;Groups&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;allowed_groups&#39;</span><span class="p">,)</span>
+        <span class="p">}),</span>
+    <span class="p">)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;start_date&quot;</span><span class="p">,</span> <span class="s2">&quot;end_date&quot;</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="VoteAdmin">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VoteAdmin">[dokumentacja]</a>
+<span class="k">class</span> <span class="nc">VoteAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Admin class for the Vote model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fieldsets</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;Vote information&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;candidate&#39;</span><span class="p">,</span> <span class="s1">&#39;election&#39;</span><span class="p">)</span>
+        <span class="p">}),</span>
+        <span class="p">(</span><span class="s1">&#39;Details&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,)</span>
+        <span class="p">}),</span>
+    <span class="p">)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;candidate_name&quot;</span><span class="p">,</span> <span class="s2">&quot;candidate_surname&quot;</span><span class="p">,</span> <span class="s2">&quot;election_name&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="VoteAdmin.election_name">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VoteAdmin.election_name">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">election_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the election type for Vote objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">election</span><span class="o">.</span><span class="n">type</span></div>
+
+
+<div class="viewcode-block" id="VoteAdmin.candidate_name">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VoteAdmin.candidate_name">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">candidate_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the candidate&#39;s name for Vote objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">candidate</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="VoteAdmin.candidate_surname">
+<a class="viewcode-back" href="../../votingapp.html#votingapp.admin.VoteAdmin.candidate_surname">[dokumentacja]</a>
+    <span class="k">def</span> <span class="nf">candidate_surname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom method to display the candidate&#39;s surname for Vote objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">candidate</span><span class="o">.</span><span class="n">surname</span></div>
+</div>
+
+
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">VotingUser</span><span class="p">,</span> <span class="n">VotingUserAdmin</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Election</span><span class="p">,</span> <span class="n">ElectionsAdmin</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Constraint</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Voted_User</span><span class="p">,</span> <span class="n">VotedUserAdmin</span><span class="p">)</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Candidate</span><span class="p">,</span> <span class="n">CandidateAdmin</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Prawa zastrzeżone 2024, Maciej Waluk, Adrian Toczydlowski, Pawel Picewicz.</p>
+  </div>
+
+  Zbudowano w <a href="https://www.sphinx-doc.org/">Sphinx</a> używając
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    dostarczone przez <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

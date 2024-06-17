@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pl" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>votingapp package &mdash; VotingApp  - dokumentacja</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=9893e7ba"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=a186e9ce"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VotingApp
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Szukaj" aria-label="Szukaj" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">votingapp package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-votingapp.admin">votingapp.admin module</a><ul>
+<li><a class="reference internal" href="#votingapp.admin.CandidateAdmin"><code class="docutils literal notranslate"><span class="pre">CandidateAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.admin.CandidateAdmin.fieldsets"><code class="docutils literal notranslate"><span class="pre">CandidateAdmin.fieldsets</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.CandidateAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">CandidateAdmin.list_display</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.CandidateAdmin.media"><code class="docutils literal notranslate"><span class="pre">CandidateAdmin.media</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.CandidateAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">CandidateAdmin.search_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionCandidatesAdmin"><code class="docutils literal notranslate"><span class="pre">ElectionCandidatesAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.admin.ElectionCandidatesAdmin.candidate_name"><code class="docutils literal notranslate"><span class="pre">ElectionCandidatesAdmin.candidate_name()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionCandidatesAdmin.candidate_surname"><code class="docutils literal notranslate"><span class="pre">ElectionCandidatesAdmin.candidate_surname()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionCandidatesAdmin.election_name"><code class="docutils literal notranslate"><span class="pre">ElectionCandidatesAdmin.election_name()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionCandidatesAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">ElectionCandidatesAdmin.list_display</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionCandidatesAdmin.media"><code class="docutils literal notranslate"><span class="pre">ElectionCandidatesAdmin.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionsAdmin"><code class="docutils literal notranslate"><span class="pre">ElectionsAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.admin.ElectionsAdmin.fieldsets"><code class="docutils literal notranslate"><span class="pre">ElectionsAdmin.fieldsets</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionsAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">ElectionsAdmin.list_display</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionsAdmin.media"><code class="docutils literal notranslate"><span class="pre">ElectionsAdmin.media</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.ElectionsAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">ElectionsAdmin.search_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin"><code class="docutils literal notranslate"><span class="pre">VoteAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin.candidate_name"><code class="docutils literal notranslate"><span class="pre">VoteAdmin.candidate_name()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin.candidate_surname"><code class="docutils literal notranslate"><span class="pre">VoteAdmin.candidate_surname()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin.election_name"><code class="docutils literal notranslate"><span class="pre">VoteAdmin.election_name()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin.fieldsets"><code class="docutils literal notranslate"><span class="pre">VoteAdmin.fieldsets</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">VoteAdmin.list_display</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VoteAdmin.media"><code class="docutils literal notranslate"><span class="pre">VoteAdmin.media</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.admin.VotedUserAdmin"><code class="docutils literal notranslate"><span class="pre">VotedUserAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.admin.VotedUserAdmin.election_name"><code class="docutils literal notranslate"><span class="pre">VotedUserAdmin.election_name()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VotedUserAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">VotedUserAdmin.list_display</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VotedUserAdmin.media"><code class="docutils literal notranslate"><span class="pre">VotedUserAdmin.media</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VotedUserAdmin.user_name"><code class="docutils literal notranslate"><span class="pre">VotedUserAdmin.user_name()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.admin.VotingUserAdmin"><code class="docutils literal notranslate"><span class="pre">VotingUserAdmin</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.admin.VotingUserAdmin.list_display"><code class="docutils literal notranslate"><span class="pre">VotingUserAdmin.list_display</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VotingUserAdmin.media"><code class="docutils literal notranslate"><span class="pre">VotingUserAdmin.media</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.admin.VotingUserAdmin.search_fields"><code class="docutils literal notranslate"><span class="pre">VotingUserAdmin.search_fields</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-votingapp.apps">votingapp.apps module</a><ul>
+<li><a class="reference internal" href="#votingapp.apps.VotingappConfig"><code class="docutils literal notranslate"><span class="pre">VotingappConfig</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.apps.VotingappConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">VotingappConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.apps.VotingappConfig.name"><code class="docutils literal notranslate"><span class="pre">VotingappConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-votingapp.models">votingapp.models module</a><ul>
+<li><a class="reference internal" href="#votingapp.models.Candidate"><code class="docutils literal notranslate"><span class="pre">Candidate</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.Candidate.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Candidate.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Candidate.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.description"><code class="docutils literal notranslate"><span class="pre">Candidate.description</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.election_candidate_set"><code class="docutils literal notranslate"><span class="pre">Candidate.election_candidate_set</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.id"><code class="docutils literal notranslate"><span class="pre">Candidate.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.name"><code class="docutils literal notranslate"><span class="pre">Candidate.name</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.objects"><code class="docutils literal notranslate"><span class="pre">Candidate.objects</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.surname"><code class="docutils literal notranslate"><span class="pre">Candidate.surname</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Candidate.vote_set"><code class="docutils literal notranslate"><span class="pre">Candidate.vote_set</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.models.Constraint"><code class="docutils literal notranslate"><span class="pre">Constraint</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.Constraint.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Constraint.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Constraint.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Constraint.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Constraint.election"><code class="docutils literal notranslate"><span class="pre">Constraint.election</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Constraint.election_id"><code class="docutils literal notranslate"><span class="pre">Constraint.election_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Constraint.id"><code class="docutils literal notranslate"><span class="pre">Constraint.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Constraint.objects"><code class="docutils literal notranslate"><span class="pre">Constraint.objects</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Constraint.question"><code class="docutils literal notranslate"><span class="pre">Constraint.question</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.models.Election"><code class="docutils literal notranslate"><span class="pre">Election</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.Election.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Election.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Election.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.allowed_groups"><code class="docutils literal notranslate"><span class="pre">Election.allowed_groups</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.constraint_set"><code class="docutils literal notranslate"><span class="pre">Election.constraint_set</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.creator"><code class="docutils literal notranslate"><span class="pre">Election.creator</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.creator_id"><code class="docutils literal notranslate"><span class="pre">Election.creator_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.election_candidate_set"><code class="docutils literal notranslate"><span class="pre">Election.election_candidate_set</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.end_date"><code class="docutils literal notranslate"><span class="pre">Election.end_date</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.get_next_by_end_date"><code class="docutils literal notranslate"><span class="pre">Election.get_next_by_end_date()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.get_next_by_start_date"><code class="docutils literal notranslate"><span class="pre">Election.get_next_by_start_date()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.get_previous_by_end_date"><code class="docutils literal notranslate"><span class="pre">Election.get_previous_by_end_date()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.get_previous_by_start_date"><code class="docutils literal notranslate"><span class="pre">Election.get_previous_by_start_date()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.id"><code class="docutils literal notranslate"><span class="pre">Election.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.max_votes"><code class="docutils literal notranslate"><span class="pre">Election.max_votes</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.objects"><code class="docutils literal notranslate"><span class="pre">Election.objects</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.start_date"><code class="docutils literal notranslate"><span class="pre">Election.start_date</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.type"><code class="docutils literal notranslate"><span class="pre">Election.type</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.vote_set"><code class="docutils literal notranslate"><span class="pre">Election.vote_set</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election.voted_user_set"><code class="docutils literal notranslate"><span class="pre">Election.voted_user_set</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate"><code class="docutils literal notranslate"><span class="pre">Election_Candidate</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.candidate"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.candidate</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.candidate_id"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.candidate_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.election"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.election</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.election_id"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.election_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.id"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Election_Candidate.objects"><code class="docutils literal notranslate"><span class="pre">Election_Candidate.objects</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.models.Vote"><code class="docutils literal notranslate"><span class="pre">Vote</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.Vote.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Vote.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Vote.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.candidate"><code class="docutils literal notranslate"><span class="pre">Vote.candidate</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.candidate_id"><code class="docutils literal notranslate"><span class="pre">Vote.candidate_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.date"><code class="docutils literal notranslate"><span class="pre">Vote.date</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.election"><code class="docutils literal notranslate"><span class="pre">Vote.election</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.election_id"><code class="docutils literal notranslate"><span class="pre">Vote.election_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.get_next_by_date"><code class="docutils literal notranslate"><span class="pre">Vote.get_next_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.get_previous_by_date"><code class="docutils literal notranslate"><span class="pre">Vote.get_previous_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.id"><code class="docutils literal notranslate"><span class="pre">Vote.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Vote.objects"><code class="docutils literal notranslate"><span class="pre">Vote.objects</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User"><code class="docutils literal notranslate"><span class="pre">Voted_User</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Voted_User.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Voted_User.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.election"><code class="docutils literal notranslate"><span class="pre">Voted_User.election</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.election_id"><code class="docutils literal notranslate"><span class="pre">Voted_User.election_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.id"><code class="docutils literal notranslate"><span class="pre">Voted_User.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.objects"><code class="docutils literal notranslate"><span class="pre">Voted_User.objects</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.user"><code class="docutils literal notranslate"><span class="pre">Voted_User.user</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.Voted_User.user_id"><code class="docutils literal notranslate"><span class="pre">Voted_User.user_id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser"><code class="docutils literal notranslate"><span class="pre">VotingUser</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">VotingUser.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">VotingUser.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.election_set"><code class="docutils literal notranslate"><span class="pre">VotingUser.election_set</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.email"><code class="docutils literal notranslate"><span class="pre">VotingUser.email</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.id"><code class="docutils literal notranslate"><span class="pre">VotingUser.id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.nr_pesel"><code class="docutils literal notranslate"><span class="pre">VotingUser.nr_pesel</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.objects"><code class="docutils literal notranslate"><span class="pre">VotingUser.objects</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.user"><code class="docutils literal notranslate"><span class="pre">VotingUser.user</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.user_id"><code class="docutils literal notranslate"><span class="pre">VotingUser.user_id</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.models.VotingUser.voted_user_set"><code class="docutils literal notranslate"><span class="pre">VotingUser.voted_user_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-votingapp.tests">votingapp.tests module</a></li>
+<li><a class="reference internal" href="#module-votingapp.urls">votingapp.urls module</a></li>
+<li><a class="reference internal" href="#module-votingapp.views">votingapp.views module</a><ul>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm"><code class="docutils literal notranslate"><span class="pre">RegistrationForm</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.Meta"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.Meta.fields"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.Meta.model"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.base_fields"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.base_fields</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.clean_password2"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.clean_password2()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.declared_fields"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.declared_fields</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.media"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.media</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.RegistrationForm.save"><code class="docutils literal notranslate"><span class="pre">RegistrationForm.save()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#votingapp.views.election_detail"><code class="docutils literal notranslate"><span class="pre">election_detail()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.election_list"><code class="docutils literal notranslate"><span class="pre">election_list()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.ended_elections_report"><code class="docutils literal notranslate"><span class="pre">ended_elections_report()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.generate_pdf"><code class="docutils literal notranslate"><span class="pre">generate_pdf()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.login_view"><code class="docutils literal notranslate"><span class="pre">login_view()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.logout_view"><code class="docutils literal notranslate"><span class="pre">logout_view()</span></code></a></li>
+<li><a class="reference internal" href="#votingapp.views.register_view"><code class="docutils literal notranslate"><span class="pre">register_view()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-votingapp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VotingApp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">votingapp package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/votingapp.rst.txt" rel="nofollow"> Zobacz źródło strony</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="votingapp-package">
+<h1>votingapp package<a class="headerlink" href="#votingapp-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="votingapp.migrations.html">votingapp.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="votingapp.migrations.html#module-votingapp.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-votingapp.admin">
+<span id="votingapp-admin-module"></span><h2>votingapp.admin module<a class="headerlink" href="#module-votingapp.admin" title="Link to this heading"></a></h2>
+<p>This file registers the models defined in the <cite>votingapp</cite> app with the Django admin interface.</p>
+<dl class="simple">
+<dt>It creates custom admin classes for each model, specifying:</dt><dd><ul class="simple">
+<li><p>Search fields for easy filtering</p></li>
+<li><p>Fieldsets for grouping related fields in the admin interface</p></li>
+<li><p>List displays to define the columns shown in the admin list view</p></li>
+<li><p>Custom methods to display related model data in a clear way (e.g., election_name, candidate_name)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.admin.CandidateAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.admin.</span></span><span class="sig-name descname"><span class="pre">CandidateAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#CandidateAdmin"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.CandidateAdmin" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Admin class for the Candidate model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.CandidateAdmin.fieldsets">
+<span class="sig-name descname"><span class="pre">fieldsets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(('Personal</span> <span class="pre">Information',</span> <span class="pre">{'fields':</span> <span class="pre">('name',</span> <span class="pre">'surname')}),</span> <span class="pre">('Description',</span> <span class="pre">{'fields':</span> <span class="pre">('description',)}))</span></em><a class="headerlink" href="#votingapp.admin.CandidateAdmin.fieldsets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.CandidateAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'surname',</span> <span class="pre">'description']</span></em><a class="headerlink" href="#votingapp.admin.CandidateAdmin.list_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.admin.CandidateAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.admin.CandidateAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.CandidateAdmin.search_fields">
+<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['name',</span> <span class="pre">'surname']</span></em><a class="headerlink" href="#votingapp.admin.CandidateAdmin.search_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionCandidatesAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.admin.</span></span><span class="sig-name descname"><span class="pre">ElectionCandidatesAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#ElectionCandidatesAdmin"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.ElectionCandidatesAdmin" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Admin class for the Election_Candidate model (relationship between Elections and Candidates).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionCandidatesAdmin.candidate_name">
+<span class="sig-name descname"><span class="pre">candidate_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#ElectionCandidatesAdmin.candidate_name"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.ElectionCandidatesAdmin.candidate_name" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the candidate’s name for Election_Candidate objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionCandidatesAdmin.candidate_surname">
+<span class="sig-name descname"><span class="pre">candidate_surname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#ElectionCandidatesAdmin.candidate_surname"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.ElectionCandidatesAdmin.candidate_surname" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the candidate’s surname for Election_Candidate objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionCandidatesAdmin.election_name">
+<span class="sig-name descname"><span class="pre">election_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#ElectionCandidatesAdmin.election_name"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.ElectionCandidatesAdmin.election_name" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the election type for Election_Candidate objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionCandidatesAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['election_name',</span> <span class="pre">'candidate_name',</span> <span class="pre">'candidate_surname']</span></em><a class="headerlink" href="#votingapp.admin.ElectionCandidatesAdmin.list_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionCandidatesAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.admin.ElectionCandidatesAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionsAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.admin.</span></span><span class="sig-name descname"><span class="pre">ElectionsAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#ElectionsAdmin"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.ElectionsAdmin" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Admin class for the Election model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionsAdmin.fieldsets">
+<span class="sig-name descname"><span class="pre">fieldsets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((None,</span> <span class="pre">{'fields':</span> <span class="pre">('creator',)}),</span> <span class="pre">('Date',</span> <span class="pre">{'fields':</span> <span class="pre">('start_date',</span> <span class="pre">'end_date')}),</span> <span class="pre">('Details',</span> <span class="pre">{'fields':</span> <span class="pre">('type',</span> <span class="pre">'max_votes')}),</span> <span class="pre">('Groups',</span> <span class="pre">{'fields':</span> <span class="pre">('allowed_groups',)}))</span></em><a class="headerlink" href="#votingapp.admin.ElectionsAdmin.fieldsets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionsAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['type',</span> <span class="pre">'start_date',</span> <span class="pre">'end_date']</span></em><a class="headerlink" href="#votingapp.admin.ElectionsAdmin.list_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionsAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.admin.ElectionsAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.ElectionsAdmin.search_fields">
+<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['type']</span></em><a class="headerlink" href="#votingapp.admin.ElectionsAdmin.search_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.admin.</span></span><span class="sig-name descname"><span class="pre">VoteAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VoteAdmin"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VoteAdmin" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Admin class for the Vote model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin.candidate_name">
+<span class="sig-name descname"><span class="pre">candidate_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VoteAdmin.candidate_name"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VoteAdmin.candidate_name" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the candidate’s name for Vote objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin.candidate_surname">
+<span class="sig-name descname"><span class="pre">candidate_surname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VoteAdmin.candidate_surname"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VoteAdmin.candidate_surname" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the candidate’s surname for Vote objects.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin.election_name">
+<span class="sig-name descname"><span class="pre">election_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VoteAdmin.election_name"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VoteAdmin.election_name" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the election type for Vote objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin.fieldsets">
+<span class="sig-name descname"><span class="pre">fieldsets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(('Vote</span> <span class="pre">information',</span> <span class="pre">{'fields':</span> <span class="pre">('candidate',</span> <span class="pre">'election')}),</span> <span class="pre">('Details',</span> <span class="pre">{'fields':</span> <span class="pre">('date',)}))</span></em><a class="headerlink" href="#votingapp.admin.VoteAdmin.fieldsets" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['candidate_name',</span> <span class="pre">'candidate_surname',</span> <span class="pre">'election_name',</span> <span class="pre">'date']</span></em><a class="headerlink" href="#votingapp.admin.VoteAdmin.list_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.admin.VoteAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.admin.VoteAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.admin.VotedUserAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.admin.</span></span><span class="sig-name descname"><span class="pre">VotedUserAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VotedUserAdmin"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VotedUserAdmin" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Admin class for the Voted_User model.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.VotedUserAdmin.election_name">
+<span class="sig-name descname"><span class="pre">election_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VotedUserAdmin.election_name"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VotedUserAdmin.election_name" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the election type for Voted_User objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.VotedUserAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['user_name',</span> <span class="pre">'election_name']</span></em><a class="headerlink" href="#votingapp.admin.VotedUserAdmin.list_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.admin.VotedUserAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.admin.VotedUserAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.admin.VotedUserAdmin.user_name">
+<span class="sig-name descname"><span class="pre">user_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VotedUserAdmin.user_name"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VotedUserAdmin.user_name" title="Link to this definition"></a></dt>
+<dd><p>Custom method to display the user’s email for Voted_User objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.admin.VotingUserAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.admin.</span></span><span class="sig-name descname"><span class="pre">VotingUserAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/admin.html#VotingUserAdmin"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.admin.VotingUserAdmin" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelAdmin</span></code></p>
+<p>Admin class for the VotingUser model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.VotingUserAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['email',</span> <span class="pre">'nr_pesel']</span></em><a class="headerlink" href="#votingapp.admin.VotingUserAdmin.list_display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.admin.VotingUserAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.admin.VotingUserAdmin.media" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.admin.VotingUserAdmin.search_fields">
+<span class="sig-name descname"><span class="pre">search_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['email',</span> <span class="pre">'nr_pesel']</span></em><a class="headerlink" href="#votingapp.admin.VotingUserAdmin.search_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-votingapp.apps">
+<span id="votingapp-apps-module"></span><h2>votingapp.apps module<a class="headerlink" href="#module-votingapp.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.apps.VotingappConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.apps.</span></span><span class="sig-name descname"><span class="pre">VotingappConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/apps.html#VotingappConfig"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.apps.VotingappConfig" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.apps.VotingappConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#votingapp.apps.VotingappConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.apps.VotingappConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'votingapp'</span></em><a class="headerlink" href="#votingapp.apps.VotingappConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-votingapp.models">
+<span id="votingapp-models-module"></span><h2>votingapp.models module<a class="headerlink" href="#module-votingapp.models" title="Link to this heading"></a></h2>
+<p>This file defines the models for the voting application.</p>
+<p>The models represent:</p>
+<ul class="simple">
+<li><p>VotingUser: Extends the default User model with additional fields like email and nr_pesel (national identification number).</p></li>
+<li><p>Election: Represents an election with details like creator, type, maximum votes allowed, start and end date, and allowed groups.</p></li>
+<li><p>Constraint: Represents a constraint associated with an election, possibly a question that needs to be answered by voters.</p></li>
+<li><p>Voted_User: Represents a relationship between a VotingUser and an Election, indicating that the user has voted in that election.</p></li>
+<li><p>Candidate: Represents a candidate in an election with name, surname, and description.</p></li>
+<li><p>Election_Candidate: Represents a relationship between an Election and a Candidate, indicating that the candidate participates in the election.</p></li>
+<li><p>Vote: Represents a vote cast by a user for a candidate in a specific election.</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.Candidate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">Candidate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#Candidate"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.Candidate" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a candidate in an election with name, surname, and description.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.Candidate.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.Candidate.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#votingapp.models.Candidate.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.election_candidate_set">
+<span class="sig-name descname"><span class="pre">election_candidate_set</span></span><a class="headerlink" href="#votingapp.models.Candidate.election_candidate_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.Candidate.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#votingapp.models.Candidate.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.Candidate.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.surname">
+<span class="sig-name descname"><span class="pre">surname</span></span><a class="headerlink" href="#votingapp.models.Candidate.surname" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Candidate.vote_set">
+<span class="sig-name descname"><span class="pre">vote_set</span></span><a class="headerlink" href="#votingapp.models.Candidate.vote_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.Constraint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">Constraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#Constraint"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.Constraint" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a constraint associated with an election, possibly a question that voters must answer.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.Constraint.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.Constraint.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.election">
+<span class="sig-name descname"><span class="pre">election</span></span><a class="headerlink" href="#votingapp.models.Constraint.election" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.election_id">
+<span class="sig-name descname"><span class="pre">election_id</span></span><a class="headerlink" href="#votingapp.models.Constraint.election_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.Constraint.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.Constraint.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Constraint.question">
+<span class="sig-name descname"><span class="pre">question</span></span><a class="headerlink" href="#votingapp.models.Constraint.question" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.Election">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">Election</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#Election"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.Election" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents an election with details and configuration.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Election.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.Election.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Election.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.Election.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.allowed_groups">
+<span class="sig-name descname"><span class="pre">allowed_groups</span></span><a class="headerlink" href="#votingapp.models.Election.allowed_groups" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.constraint_set">
+<span class="sig-name descname"><span class="pre">constraint_set</span></span><a class="headerlink" href="#votingapp.models.Election.constraint_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.creator">
+<span class="sig-name descname"><span class="pre">creator</span></span><a class="headerlink" href="#votingapp.models.Election.creator" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.creator_id">
+<span class="sig-name descname"><span class="pre">creator_id</span></span><a class="headerlink" href="#votingapp.models.Election.creator_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.election_candidate_set">
+<span class="sig-name descname"><span class="pre">election_candidate_set</span></span><a class="headerlink" href="#votingapp.models.Election.election_candidate_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.end_date">
+<span class="sig-name descname"><span class="pre">end_date</span></span><a class="headerlink" href="#votingapp.models.Election.end_date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.models.Election.get_next_by_end_date">
+<span class="sig-name descname"><span class="pre">get_next_by_end_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">end_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#votingapp.models.Election.get_next_by_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.models.Election.get_next_by_start_date">
+<span class="sig-name descname"><span class="pre">get_next_by_start_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">start_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#votingapp.models.Election.get_next_by_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.models.Election.get_previous_by_end_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_end_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">end_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#votingapp.models.Election.get_previous_by_end_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.models.Election.get_previous_by_start_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_start_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">start_date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#votingapp.models.Election.get_previous_by_start_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.Election.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.max_votes">
+<span class="sig-name descname"><span class="pre">max_votes</span></span><a class="headerlink" href="#votingapp.models.Election.max_votes" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.Election.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.start_date">
+<span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#votingapp.models.Election.start_date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#votingapp.models.Election.type" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.vote_set">
+<span class="sig-name descname"><span class="pre">vote_set</span></span><a class="headerlink" href="#votingapp.models.Election.vote_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election.voted_user_set">
+<span class="sig-name descname"><span class="pre">voted_user_set</span></span><a class="headerlink" href="#votingapp.models.Election.voted_user_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">Election_Candidate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#Election_Candidate"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.Election_Candidate" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a relationship between an Election and a Candidate, indicating that the candidate participates in the election.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.candidate">
+<span class="sig-name descname"><span class="pre">candidate</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.candidate" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.candidate_id">
+<span class="sig-name descname"><span class="pre">candidate_id</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.candidate_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.election">
+<span class="sig-name descname"><span class="pre">election</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.election" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.election_id">
+<span class="sig-name descname"><span class="pre">election_id</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.election_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.Election_Candidate.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Election_Candidate.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.Election_Candidate.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.Vote">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">Vote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#Vote"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.Vote" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a vote cast by a user for a candidate in a specific election.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Vote.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.Vote.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Vote.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.Vote.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.candidate">
+<span class="sig-name descname"><span class="pre">candidate</span></span><a class="headerlink" href="#votingapp.models.Vote.candidate" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.candidate_id">
+<span class="sig-name descname"><span class="pre">candidate_id</span></span><a class="headerlink" href="#votingapp.models.Vote.candidate_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.date">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#votingapp.models.Vote.date" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.election">
+<span class="sig-name descname"><span class="pre">election</span></span><a class="headerlink" href="#votingapp.models.Vote.election" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.election_id">
+<span class="sig-name descname"><span class="pre">election_id</span></span><a class="headerlink" href="#votingapp.models.Vote.election_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.models.Vote.get_next_by_date">
+<span class="sig-name descname"><span class="pre">get_next_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#votingapp.models.Vote.get_next_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.models.Vote.get_previous_by_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#votingapp.models.Vote.get_previous_by_date" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.Vote.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Vote.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.Vote.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">Voted_User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#Voted_User"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.Voted_User" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a relationship between a VotingUser and an Election, indicating that the user has voted in that election.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.Voted_User.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.Voted_User.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.election">
+<span class="sig-name descname"><span class="pre">election</span></span><a class="headerlink" href="#votingapp.models.Voted_User.election" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.election_id">
+<span class="sig-name descname"><span class="pre">election_id</span></span><a class="headerlink" href="#votingapp.models.Voted_User.election_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.Voted_User.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.Voted_User.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#votingapp.models.Voted_User.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.Voted_User.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#votingapp.models.Voted_User.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.models.</span></span><span class="sig-name descname"><span class="pre">VotingUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/models.html#VotingUser"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.models.VotingUser" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a voter registered in the voting system. Extends the default User model with additional information.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#votingapp.models.VotingUser.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#votingapp.models.VotingUser.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.election_set">
+<span class="sig-name descname"><span class="pre">election_set</span></span><a class="headerlink" href="#votingapp.models.VotingUser.election_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#votingapp.models.VotingUser.email" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#votingapp.models.VotingUser.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.nr_pesel">
+<span class="sig-name descname"><span class="pre">nr_pesel</span></span><a class="headerlink" href="#votingapp.models.VotingUser.nr_pesel" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#votingapp.models.VotingUser.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.user">
+<span class="sig-name descname"><span class="pre">user</span></span><a class="headerlink" href="#votingapp.models.VotingUser.user" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.user_id">
+<span class="sig-name descname"><span class="pre">user_id</span></span><a class="headerlink" href="#votingapp.models.VotingUser.user_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.models.VotingUser.voted_user_set">
+<span class="sig-name descname"><span class="pre">voted_user_set</span></span><a class="headerlink" href="#votingapp.models.VotingUser.voted_user_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-votingapp.tests">
+<span id="votingapp-tests-module"></span><h2>votingapp.tests module<a class="headerlink" href="#module-votingapp.tests" title="Link to this heading"></a></h2>
+</section>
+<section id="module-votingapp.urls">
+<span id="votingapp-urls-module"></span><h2>votingapp.urls module<a class="headerlink" href="#module-votingapp.urls" title="Link to this heading"></a></h2>
+</section>
+<section id="module-votingapp.views">
+<span id="votingapp-views-module"></span><h2>votingapp.views module<a class="headerlink" href="#module-votingapp.views" title="Link to this heading"></a></h2>
+<p>This file defines the view functions for the voting application.</p>
+<p>The views handle user authentication (login, logout, registration),
+election list display (ongoing and ended elections based on user groups),
+voting process (candidate selection and vote casting), and ended election report generation (HTML and PDF).</p>
+<p>Logging is set up to track user actions and potential issues.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">RegistrationForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#RegistrationForm"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.RegistrationForm" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Custom form for user registration, adding password confirmation and logic to associate the VotingUser with the created User instance.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/votingapp/views.html#RegistrationForm.Meta"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.RegistrationForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['email',</span> <span class="pre">'nr_pesel']</span></em><a class="headerlink" href="#votingapp.views.RegistrationForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#votingapp.views.RegistrationForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#votingapp.models.VotingUser" title="votingapp.models.VotingUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">VotingUser</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'nr_pesel':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#votingapp.views.RegistrationForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.clean_password2">
+<span class="sig-name descname"><span class="pre">clean_password2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#RegistrationForm.clean_password2"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.RegistrationForm.clean_password2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#votingapp.views.RegistrationForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#votingapp.views.RegistrationForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="votingapp.views.RegistrationForm.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">commit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#RegistrationForm.save"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.RegistrationForm.save" title="Link to this definition"></a></dt>
+<dd><p>Save this form’s self.instance object if commit=True. Otherwise, add
+a save_m2m() method to the form which can be called after the instance
+is saved manually at a later time. Return the model instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.election_detail">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">election_detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">election_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#election_detail"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.election_detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.election_list">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">election_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#election_list"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.election_list" title="Link to this definition"></a></dt>
+<dd><p>Displays a list of ongoing and ended elections for the logged-in user, considering their authorized groups and voting history.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.ended_elections_report">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">ended_elections_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">election_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#ended_elections_report"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.ended_elections_report" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.generate_pdf">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">generate_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#generate_pdf"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.generate_pdf" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.login_view">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">login_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#login_view"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.login_view" title="Link to this definition"></a></dt>
+<dd><p>Handles login functionality: processes login form submission, authenticates users, and redirects to the election list on success.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.logout_view">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">logout_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#logout_view"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.logout_view" title="Link to this definition"></a></dt>
+<dd><p>Logs out the current user and redirects to the login page.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="votingapp.views.register_view">
+<span class="sig-prename descclassname"><span class="pre">votingapp.views.</span></span><span class="sig-name descname"><span class="pre">register_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/votingapp/views.html#register_view"><span class="viewcode-link"><span class="pre">[źródło]</span></span></a><a class="headerlink" href="#votingapp.views.register_view" title="Link to this definition"></a></dt>
+<dd><p>Handles user registration: processes registration form submission, saves user data, and redirects to login on success.</p>
+</dd></dl>
+
+</section>
+<section id="module-votingapp">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-votingapp" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Prawa zastrzeżone 2024, Maciej Waluk, Adrian Toczydlowski, Pawel Picewicz.</p>
+  </div>
+
+  Zbudowano w <a href="https://www.sphinx-doc.org/">Sphinx</a> używając
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    dostarczone przez <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

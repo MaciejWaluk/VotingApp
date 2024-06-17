@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://www.socialistsanddemocrats.eu/sites/default/files/styles/listing_new_landing_x2/public/2023-04/shutterstock_1808056018_crop.jpg?itok=UN_Ku_4U");
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin: 0 auto;
+    background:transparent;
+    backdrop-filter: blur(40px);
+    padding: 30px 60px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: #303a2b;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #555;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #5E5E5E;
+}
+
+.login-paragraph {
+    font-size: 0.85em;
+}
+
+a{
+    text-decoration: none;
+    font-weight: 600;
+    color: #6839f6;
+}
+
+.error {
+    font-size: 0.8em;
+    color: red;
+}

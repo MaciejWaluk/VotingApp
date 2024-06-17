@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("https://www.socialistsanddemocrats.eu/sites/default/files/styles/listing_new_landing_x2/public/2023-04/shutterstock_2147638439_crop.jpg?itok=CHOtwVOy");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    margin-top: 0;
+    font-weight: 600;
+    color: #ffbe00;
+    font-size: 32px;
+}
+
+.summary-container {
+    width: 300px;
+    margin: 150px auto;
+    background-color: transparent;
+    backdrop-filter: blur(80px);
+    padding: 60px 100px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+li{
+    font-weight: 600;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+label {
+    cursor: pointer; /* Change cursor to pointer when hovering over labels */
+}
+
+button {
+    width: 120px;
+    padding: 10px 20px; /* Add padding to the button */
+    background-color: #007bff; /* Set background color */
+    color: #ffffff; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 25px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darken the background color on hover */
+}
+
+
+
+
+

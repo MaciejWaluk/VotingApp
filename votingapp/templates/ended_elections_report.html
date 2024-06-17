@@ -1,0 +1,28 @@
+{% load static %}
+<!-- ended_election_report.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ended Election Report</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'endedElection.css' %}">
+</head>
+<body>
+    <div class="summary-container">
+        <h2>Election Summary</h2>
+        <ul>
+            <li>Election Name: {{ election.type }}</li><br>
+            <li>Total Votes: {{ total_votes }}</li><br>
+            <li>Candidate Votes:</li><br>
+            <ul>
+                {% for candidate, votes in candidate_votes.items %}
+                    <li>{{ candidate }}: {{ votes }}</li><br>
+                {% endfor %}
+            </ul>
+        </ul>
+        <button onclick="window.history.back()">Back</button>
+        <button onclick="window.location.href='?pdf=1'">Export</button>
+
+    </div>
+</body>
+</html>
