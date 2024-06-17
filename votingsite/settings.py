@@ -31,7 +31,7 @@ DOCS_ACCESS = 'public'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['voting-app-mwppat.azurewebsites.net']
 
 # Logger
 # See https://docs.djangoproject.com/en/5.0/howto/logging/
