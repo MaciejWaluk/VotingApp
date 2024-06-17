@@ -10,7 +10,7 @@ It creates custom admin classes for each model, specifying:
 
 from django.contrib import admin
 
-from .models import (VotingUser, Election, Constraint, Voted_User, Candidate, Election_Candidate, Vote)
+from .models import (VotingUser, Election, Voted_User, Candidate, Election_Candidate, Vote)
 
 
 class CandidateAdmin(admin.ModelAdmin):
@@ -138,6 +138,5 @@ class VoteAdmin(admin.ModelAdmin):
 
 admin.site.register(VotingUser, VotingUserAdmin)
 admin.site.register(Election, ElectionsAdmin)
-admin.site.register(Constraint)
 admin.site.register(Voted_User, VotedUserAdmin)
 admin.site.register(Candidate, CandidateAdmin)

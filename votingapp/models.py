@@ -34,18 +34,6 @@ class Election(models.Model):
         return self.type
 
 
-class Constraint(models.Model):
-    """
-    Represents a constraint associated with an election, possibly a question that voters must answer.
-    """
-    id = models.AutoField(primary_key=True)
-    election = models.ForeignKey(Election, on_delete=models.DO_NOTHING)
-    question = models.CharField(max_length=100)
-
-    def __str__(self):
-        return f"Constraint for election {self.election.type}"  # Optional for better representation
-
-
 class Voted_User(models.Model):
     """
     Represents a relationship between a VotingUser and an Election, indicating that the user has voted in that election.
