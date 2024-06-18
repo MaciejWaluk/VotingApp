@@ -42,15 +42,17 @@
         <p><strong>Start Date:</strong> {{ election.start_date }}</p>
         <p><strong>End Date:</strong> {{ election.end_date }}</p>
         <p><strong>Total Votes:</strong> {{ total_votes }}</p>
+        <p><strong>Voting Turnout:</strong> {{ voting_percentage }}%</p>
+
         <h2>Candidate Votes</h2>
         <table class="votes-table">
             <tr>
                 <th>Candidate</th>
                 <th>Votes</th>
             </tr>
-            {% for candidate, votes in candidate_votes.items %}
+            {% for candidate_full_name, votes in candidate_votes.items %}
             <tr>
-                <td>{{ candidate.name }} {{ candidate.surname }}</td>
+                <td>{{ candidate_full_name }}</td>
                 <td>{{ votes }}</td>
             </tr>
             {% endfor %}

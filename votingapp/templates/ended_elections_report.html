@@ -13,10 +13,11 @@
         <ul>
             <li>Election Name: {{ election.type }}</li><br>
             <li>Total Votes: {{ total_votes }}</li><br>
+            <li>Voting turnout: {{ voting_percentage }}%</li><br>
             <li>Candidate Votes:</li><br>
             <ul>
-                {% for candidate, votes in candidate_votes.items %}
-                    <li>{{ candidate.name }} {{ candidate.surname }}: {{ votes }}</li><br>
+                {% for candidate_full_name, votes in candidate_votes.items %}
+                    <li>{{ candidate_full_name }}: {{ votes }}</li><br>
                 {% endfor %}
             </ul>
         </ul>

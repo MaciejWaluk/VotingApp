@@ -50,9 +50,9 @@ class RegistrationForm(forms.ModelForm):
 
     def save(self, commit=True):
         voting_user = super().save(commit=False)
-        username = self.cleaned_data['email']  # Use email as username
+        username = self.cleaned_data['email']
         user = User.objects.create_user(username=username, email=username, password=self.cleaned_data['password1'])
-        voting_user.user = user  # Associate the VotingUser with the User instance
+        voting_user.user = user
         if commit:
             voting_user.save()
         logger.info(f"New user registered: {username}")
@@ -200,14 +200,13 @@ def generate_pdf(template_path, context):
         - An error message if PDF generation fails.
     """
     template = get_template(template_path)
-    html = template.render(context)
-    html = html.encode('utf-8')
+    html = template.render(context).encode('utf-8')
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="election_report.pdf"'
     pisa_status = pisa.CreatePDF(html, dest=response, encoding='utf-8')
     if pisa_status.err:
         logger.error("Error generating PDF.")
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+        return HttpResponse('We had some errors <pre>' + str(pisa_status.err) + '</pre>', status=500)
     logger.debug("PDF generated successfully.")
     return response
 
@@ -240,16 +239,25 @@ def ended_elections_report(request, election_id):
     total_votes = votes.count()
     candidate_votes = {}
     for vote in votes:
-        candidate_name = vote.candidate.name
-        if candidate_name in candidate_votes:
-            candidate_votes[candidate_name] += 1
+        candidate_full_name = f"{vote.candidate.name} {vote.candidate.surname}"
+        if candidate_full_name in candidate_votes:
+            candidate_votes[candidate_full_name] += 1
         else:
-            candidate_votes[candidate_name] = 1
+            candidate_votes[candidate_full_name] = 1
+
+    eligible_voters_count = User.objects.filter(groups__in=election.allowed_groups.all()).distinct().count()
+    voted_users_count = Voted_User.objects.filter(election=election).count()
+
+    if eligible_voters_count == 0:
+        voting_percentage = 0
+    else:
+        voting_percentage = (voted_users_count / eligible_voters_count) * 100
 
     context = {
         'election': election,
         'total_votes': total_votes,
         'candidate_votes': candidate_votes,
+        'voting_percentage': voting_percentage,
         'date': timezone.now().strftime('%Y-%m-%d')
     }
 
