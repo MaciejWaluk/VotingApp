@@ -327,6 +327,9 @@ def election_detail(request, election_id):
         if len(selected_candidates) > max_votes:
             messages.error(request, f'Please select maximally {max_votes} candidates.')
             logger.warning(f"User {user.username} selected too many candidates in election ID: {election_id}")
+        elif len(selected_candidates) == 0:
+            messages.error(request, f'Please select at least one candidate')
+            logger.warning(f"User {user.username} selected zero candidates in election ID: {election_id}")
         else:
             for candidate_id in selected_candidates:
                 candidate = get_object_or_404(Candidate, pk=candidate_id)
