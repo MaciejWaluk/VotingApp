@@ -16,7 +16,7 @@
             <li>Candidate Votes:</li><br>
             <ul>
                 {% for candidate, votes in candidate_votes.items %}
-                    <li>{{ candidate }}: {{ votes }}</li><br>
+                    <li>{{ candidate.name }} {{ candidate.surname }}: {{ votes }}</li><br>
                 {% endfor %}
             </ul>
         </ul>
