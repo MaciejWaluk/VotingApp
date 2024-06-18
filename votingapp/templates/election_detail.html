@@ -16,7 +16,10 @@
                 alert('Please select maximally ' + maxVotes + ' candidates.');
                 return false;
             }
-            
+            else if (checkedCount === 0) {
+                alert('Please select at least one candidate');
+                return false;
+            }
             return true;
         }
     </script>
