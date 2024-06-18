@@ -201,9 +201,10 @@ def generate_pdf(template_path, context):
     """
     template = get_template(template_path)
     html = template.render(context)
+    html = html.encode('utf-8')
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="election_report.pdf"'
-    pisa_status = pisa.CreatePDF(html, dest=response)
+    pisa_status = pisa.CreatePDF(html, dest=response, encoding='utf-8')
     if pisa_status.err:
         logger.error("Error generating PDF.")
         return HttpResponse('We had some errors <pre>' + html + '</pre>')

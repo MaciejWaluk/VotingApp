@@ -34,7 +34,7 @@
             {% for candidate in candidates %}
             <li>
                 <label>
-                    <input type="checkbox" name="candidate" value="{{ candidate.id }}"> {{ candidate.name }}
+                    <input type="checkbox" name="candidate" value="{{ candidate.id }}"> {{ candidate.name }} {{ candidate.surname }}
                 </label>
             </li>
             {% endfor %}

@@ -50,7 +50,7 @@
             </tr>
             {% for candidate, votes in candidate_votes.items %}
             <tr>
-                <td>{{ candidate }}</td>
+                <td>{{ candidate.name }} {{ candidate.surname }}</td>
                 <td>{{ votes }}</td>
             </tr>
             {% endfor %}
