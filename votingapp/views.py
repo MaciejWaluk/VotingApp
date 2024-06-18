@@ -25,7 +25,6 @@ from xhtml2pdf import pisa
 from votingapp.models import Election, Candidate, Vote
 from .models import Voted_User, VotingUser
 
-# Set up logging
 logger = logging.getLogger(__name__)
 
 
@@ -331,7 +330,7 @@ def election_detail(request, election_id):
         else:
             for candidate_id in selected_candidates:
                 candidate = get_object_or_404(Candidate, pk=candidate_id)
-                Vote.objects.create(candidate=candidate, election=election, date=timezone.now())  # Set the date
+                Vote.objects.create(candidate=candidate, election=election, date=timezone.now())
 
             Voted_User.objects.create(user=voting_user, election=election)
             messages.success(request, 'Your vote has been submitted successfully.')

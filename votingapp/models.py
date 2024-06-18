@@ -11,7 +11,7 @@ class VotingUser(models.Model):
     Represents a voter registered in the voting system. Extends the default User model with additional information.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.CharField(max_length=100, unique=True)  # Ensures unique email addresses
+    email = models.CharField(max_length=100, unique=True)
     nr_pesel = models.CharField(max_length=11)
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Voted_User(models.Model):
     election = models.ForeignKey(Election, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return f"{self.user} voted in {self.election}"  # Optional for better representation
+        return f"{self.user} voted in {self.election}"
 
 
 class Candidate(models.Model):
@@ -68,7 +68,7 @@ class Election_Candidate(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return f"{self.candidate} is a candidate in {self.election}"  # Optional for better representation
+        return f"{self.candidate} is a candidate in {self.election}"
 
 
 class Vote(models.Model):

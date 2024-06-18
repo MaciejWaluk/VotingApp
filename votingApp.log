@@ -3,3 +3,186 @@ votingapp.views INFO 2024-06-17 19:54:38,625 views 10372 3904 User registration 
 votingapp.views INFO 2024-06-17 19:54:47,003 views 10372 3904 User logged in: user1@gmail.com
 votingapp.views INFO 2024-06-17 19:54:47,077 views 10372 3904 Election list accessed by user: user1@gmail.com
 votingapp.views INFO 2024-06-17 19:54:48,443 views 10372 3904 User logged out: user1@gmail.com
+votingapp.views INFO 2024-06-18 23:21:40,132 views 6664 916 User logged in: TestUser3@gmail.com
+votingapp.views INFO 2024-06-18 23:21:40,210 views 6664 916 Election list accessed by user: TestUser3@gmail.com
+votingapp.views INFO 2024-06-18 23:21:41,253 views 6664 916 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:21:42,179 views 6664 916 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:25:43,057 views 3028 10440 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:25:43,371 views 3028 10440 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:25:44,447 views 3028 10440 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:25:45,632 views 3028 10440 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:27:57,150 views 16720 1928 User logged in: TestUser3@gmail.com
+votingapp.views INFO 2024-06-18 23:27:57,218 views 16720 1928 Election list accessed by user: TestUser3@gmail.com
+votingapp.views INFO 2024-06-18 23:27:58,202 views 16720 1928 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:28:00,794 views 16720 1928 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>b&#x27;Andrzej Duda&#x27;</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>b&#x27;Rafa\\xc5\\x82 Trzaskowski&#x27;</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:28:14,860 views 12464 2888 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:28:15,469 views 12464 2888 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:28:17,041 views 12464 2888 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:29:56,846 views 12464 2888 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:29:57,909 views 12464 2888 HTML content: b'<!DOCTYPE html>\n<html>\n<head>\n    <meta charset="UTF-8">\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .candidate-votes {\n            margin-top: 20px;\n        }\n        .candidate {\n            margin-bottom: 10px;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <div class="candidate-votes">\n            \n            <div class="candidate">\n                <strong>Andrzej Duda</strong>: 2 votes\n            </div>\n            \n            <div class="candidate">\n                <strong>Rafa\xc5\x82 Trzaskowski</strong>: 1 votes\n            </div>\n            \n        </div>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:30:09,070 views 12464 2888 HTML content: b'<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .candidate-votes {\n            margin-top: 20px;\n        }\n        .candidate {\n            margin-bottom: 10px;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <div class="candidate-votes">\n            \n            <div class="candidate">\n                <strong>Andrzej Duda</strong>: 2 votes\n            </div>\n            \n            <div class="candidate">\n                <strong>Rafa\xc5\x82 Trzaskowski</strong>: 1 votes\n            </div>\n            \n        </div>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:31:32,187 views 6496 19236 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:31:33,019 views 6496 19236 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:31:34,056 views 6496 19236 HTML content: <!-- templates/election_report_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Presidential elections 2020 Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 1.4em;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .votes-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .votes-table th, .votes-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .votes-table th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Presidential elections 2020 -  Report</h1>
+    </div>
+    <div class="content">
+        <p><strong>Start Date:</strong> June 28, 2020</p>
+        <p><strong>End Date:</strong> June 29, 2020</p>
+        <p><strong>Total Votes:</strong> 3</p>
+        <p><strong>Voting Turnout:</strong> 75.0%</p>
+
+        <h2>Candidate Votes</h2>
+        <table class="votes-table">
+            <tr>
+                <th>Candidate</th>
+                <th>Votes</th>
+            </tr>
+            
+            <tr>
+                <td>Andrzej Duda</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>Rafa³ Trzaskowski</td>
+                <td>1</td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="footer">
+        <p>Generated on: 2024-06-18</p>
+    </div>
+</body>
+</html>
+
+votingapp.views INFO 2024-06-18 23:32:59,163 views 13028 6360 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:33:00,228 views 13028 6360 HTML content: <!-- templates/election_report_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1250">
+    <title>Presidential elections 2020 Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 1.4em;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .votes-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .votes-table th, .votes-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .votes-table th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Presidential elections 2020 -  Report</h1>
+    </div>
+    <div class="content">
+        <p><strong>Start Date:</strong> June 28, 2020</p>
+        <p><strong>End Date:</strong> June 29, 2020</p>
+        <p><strong>Total Votes:</strong> 3</p>
+        <p><strong>Voting Turnout:</strong> 75.0%</p>
+
+        <h2>Candidate Votes</h2>
+        <table class="votes-table">
+            <tr>
+                <th>Candidate</th>
+                <th>Votes</th>
+            </tr>
+            
+            <tr>
+                <td>Andrzej Duda</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>Rafa³ Trzaskowski</td>
+                <td>1</td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="footer">
+        <p>Generated on: 2024-06-18</p>
+    </div>
+</body>
+</html>
+
+votingapp.views INFO 2024-06-18 23:33:28,429 views 19616 17472 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:33:29,256 views 19616 17472 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xb3 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:34:33,668 views 14776 19920 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:34:34,734 views 14776 19920 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <meta charset="UTF-8">\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:35:07,685 views 21376 16744 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:35:08,624 views 21376 16744 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <meta charset="UTF-8">\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:38:08,199 views 21376 16744 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:38:09,432 views 21376 16744 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <meta charset="UTF-8">\n    <style>\n        @media print {\n            @font-face {\n                font-family: "DejaVu Sans";\n                src: url("C:/Users/wakul/Downloads/dejavu-sans/DejaVuSans.ttf");\n            }\n        }   \n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:38:21,400 views 17604 19716 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:38:22,182 views 17604 19716 HTML content: b'<!-- templates/election_report_template.html -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <meta charset="UTF-8">\n    <style>\n        @media print {\n            @font-face {\n                font-family: "DejaVu Sans";\n                src: url("C:/Users/wakul/Downloads/dejavu-sans/DejaVuSans.ttf");\n            }\n        }   \n        body {\n            font-family: Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:39:59,789 views 17604 19716 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:40:00,595 views 17604 19716 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:40:01,318 views 17604 19716 HTML content: b'<!-- templates/election_report_template.html -->\n\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <meta charset="UTF-8">\n    <style>\n        @media print {\n            @font-face {\n                font-family: "DejaVu Sans";\n                src: url("/static/fonts/DejaVuSans.ttf") format(\'truetype\');\n            }\n        }\n        body {\n            font-family: "DejaVu Sans", Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:40:10,331 views 17604 19716 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:40:11,842 views 17604 19716 HTML content: b'<!-- templates/election_report_template.html -->\n\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        @media print {\n            @font-face {\n                font-family: "DejaVu Sans";\n                src: url("/static/fonts/DejaVuSans.ttf") format(\'truetype\');\n            }\n        }\n        body {\n            font-family: "DejaVu Sans", Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:40:28,319 views 17604 19716 Ended elections report accessed for election ID: 5
+votingapp.views INFO 2024-06-18 23:40:29,350 views 17604 19716 HTML content: b'<!-- templates/election_report_template.html -->\n\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <meta charset="UTF-8">\n    <style>\n        body {\n            font-family: "DejaVu Sans", Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'
+votingapp.views INFO 2024-06-18 23:40:44,943 views 17604 19716 HTML content: b'<!-- templates/election_report_template.html -->\n\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Presidential elections 2020 Report</title>\n    <style>\n        body {\n            font-family: "DejaVu Sans", Arial, sans-serif;\n            margin: 20px;\n            font-size: 1.4em;\n        }\n        .header {\n            text-align: center;\n            margin-bottom: 50px;\n        }\n        .content {\n            margin-top: 20px;\n        }\n        .votes-table {\n            width: 100%;\n            border-collapse: collapse;\n        }\n        .votes-table th, .votes-table td {\n            border: 1px solid #ddd;\n            padding: 8px;\n            text-align: left;\n        }\n        .votes-table th {\n            background-color: #f2f2f2;\n        }\n        .footer {\n            margin-top: 50px;\n            text-align: center;\n        }\n    </style>\n</head>\n<body>\n    <div class="header">\n        <h1>Presidential elections 2020 -  Report</h1>\n    </div>\n    <div class="content">\n        <p><strong>Start Date:</strong> June 28, 2020</p>\n        <p><strong>End Date:</strong> June 29, 2020</p>\n        <p><strong>Total Votes:</strong> 3</p>\n        <p><strong>Voting Turnout:</strong> 75.0%</p>\n\n        <h2>Candidate Votes</h2>\n        <table class="votes-table">\n            <tr>\n                <th>Candidate</th>\n                <th>Votes</th>\n            </tr>\n            \n            <tr>\n                <td>Andrzej Duda</td>\n                <td>2</td>\n            </tr>\n            \n            <tr>\n                <td>Rafa\xc5\x82 Trzaskowski</td>\n                <td>1</td>\n            </tr>\n            \n        </table>\n    </div>\n    <div class="footer">\n        <p>Generated on: 2024-06-18</p>\n    </div>\n</body>\n</html>\n'

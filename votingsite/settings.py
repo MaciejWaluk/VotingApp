@@ -28,7 +28,7 @@ DOCS_ACCESS = 'public'
 CSRF_TRUSTED_ORIGINS = ['https://voting-app-django.onrender.com/', 'https://voting-app-django.onrender.com/*']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
